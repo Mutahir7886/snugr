@@ -1,0 +1,140 @@
+<!--<ion-header [translucent]="true">-->
+<!--    <ion-toolbar>-->
+<!--        <ion-title>-->
+<!--            My friends-->
+<!--        </ion-title>-->
+<!--    </ion-toolbar>-->
+<!--</ion-header>-->
+
+<!--<ion-content [fullscreen]="true">-->
+<!--    <div style="display: flex;flex-basis: 50%;margin-left: 20px;margin-top: 20px">-->
+<!--        <form [formGroup]="searchForm">-->
+<!--            <input-->
+<!--                    style="margin-left: 20px;margin-top: 20px;margin-bottom: 20px"-->
+<!--                    type="search"-->
+<!--                    placeholder="search for friends"-->
+<!--                    formControlName="Search">-->
+<!--        </form>-->
+<!--        <ion-button (click)="Invite()">Invite</ion-button>-->
+<!--        <ion-spinner style="margin-top: 20px" *ngIf="loadingSearch" name="bubbles"></ion-spinner>-->
+
+<!--    </div>-->
+<!--    <ion-list *ngIf="!SearchFriend.value && userFriends">-->
+
+<!--        <ion-item-sliding *ngFor="let items of userFriends;let i=index">-->
+
+<!--            <ion-item>-->
+<!--                <div style="display: flex;justify-content: center">-->
+<!--                    <p>{{items.friend_details.name}}</p>-->
+<!--                </div>-->
+<!--            </ion-item>-->
+
+<!--            <ion-item-options side="end">-->
+<!--                <ion-button-->
+<!--                            (click)="deleteFriend(items.friend_details._id,items.fb_id,i)">Delete-->
+<!--                </ion-button>-->
+<!--            </ion-item-options>-->
+<!--        </ion-item-sliding>-->
+
+<!--        <div *ngIf="userFriends.length ===0">-->
+<!--            <p>No Friends added yet</p>-->
+<!--        </div>-->
+
+<!--    </ion-list>-->
+
+
+<!--    <div style="margin-left: 20px;margin-top: 20px" *ngIf="SearchFriend.value && searchResults">-->
+<!--        <h1 *ngIf="searchResults">Search Results</h1>-->
+<!--        <div *ngFor="let item of searchResults">-->
+<!--            <div style="display: flex;flex-direction: row" *ngIf="searchResults">-->
+<!--                <p style="margin-right: 10px"> {{item.name}}</p>-->
+<!--                <ion-button *ngIf="!isFriend(item.username)" (click)="addFriend(item.fb_id,item._id)">Add</ion-button>-->
+<!--                <ion-button *ngIf="isFriend(item.username)">Friends</ion-button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div *ngIf="searchResults.length ===0">-->
+<!--            <p>No data</p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">-->
+<!--        <ion-infinite-scroll-content-->
+<!--                loadingSpinner="bubbles"-->
+<!--        >-->
+<!--        </ion-infinite-scroll-content>-->
+<!--    </ion-infinite-scroll>-->
+<!--</ion-content>-->
+
+
+
+<!--Ahmed UI Integration-->
+
+<ion-header class="main-header">
+    <ion-toolbar>
+        <h3>Friends</h3>
+        <p>Hi, buddy here you have your friend list</p>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="main-body">
+        <div class="setting-screen">
+
+            <form class="plr-15" [formGroup]="searchForm">
+                <ion-searchbar   formControlName="Search"></ion-searchbar>
+            </form>
+
+            <ion-list *ngIf="!SearchFriend.value && userFriends">
+
+                <ion-item-sliding *ngFor="let items of userFriends;let i=index">
+
+                    <ion-item>
+                        <img *ngIf="items.friend_details.profile!=''" slot="start" [src]="items.friend_details.profile" alt="">
+                        <h6 slot="start" *ngIf="items.friend_details.profile==''">{{checkName(items.friend_details.name)}}</h6>
+                        <ion-label>{{items.friend_details.name}}</ion-label>
+                    </ion-item>
+
+                    <ion-item-options side="end">
+                        <ion-button slot="end" fill="outline"
+                                (click)="deleteFriend(items.friend_details._id,items.fb_id,i)">Delete
+                        </ion-button>
+                    </ion-item-options>
+                </ion-item-sliding>
+
+                <div *ngIf="userFriends.length ===0" class="not-found ">
+                    <img src="assets/images/no-friends.png" alt="img">
+                    <p>No Friends added yet</p>
+
+                </div>
+
+            </ion-list>
+
+            <ion-list *ngIf="SearchFriend.value && searchResults">
+
+                <ion-item *ngFor="let item of searchResults">
+                    <img *ngIf="item.profile!=''" slot="start" [src]="item.profile" alt="">
+                    <h6 *ngIf="item.profile==''" slot="start">{{checkName(item.name)}}</h6>
+                    <ion-label> {{item.name}}</ion-label>
+                    <ion-button *ngIf="!isFriend(item.username)" (click)="addFriend(item.fb_id,item._id)" slot="end" fill="outline" >Add</ion-button>
+                    <ion-button [disabled]="true" *ngIf="isFriend(item.username)" slot="end" fill="outline">Friends</ion-button>
+                </ion-item>
+
+                <div *ngIf="searchResults.length ===0" class="not-found">
+                    <img src="assets/images/no-friends.png" alt="img">
+                    <p>Not found</p>
+
+                </div>
+
+            </ion-list>
+
+            <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+                <ion-infinite-scroll-content
+                        loadingSpinner="bubbles"
+                        loadingText="Loading more data..."
+                >
+                </ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+
+        </div>
+    </div>
+</ion-content>

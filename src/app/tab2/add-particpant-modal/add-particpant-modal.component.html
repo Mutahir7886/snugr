@@ -1,0 +1,143 @@
+<!--<ion-header [translucent]="true">-->
+<!--    <ion-toolbar>-->
+<!--        <ion-title>-->
+<!--            Add Participants-->
+<!--        </ion-title>-->
+<!--    </ion-toolbar>-->
+<!--</ion-header>-->
+
+<!--<ion-content [fullscreen]="true">-->
+<!--    <div style="display: flex;flex-basis: 50%;margin-left: 20px;margin-top: 20px">-->
+<!--        <form [formGroup]="searchForMoreFriends">-->
+<!--            <input-->
+<!--                    style="margin-left: 20px;margin-top: 20px;margin-bottom: 20px"-->
+<!--                    type="search"-->
+<!--                    placeholder="search for friends"-->
+<!--                    formControlName="Search">-->
+<!--        </form>-->
+
+<!--    </div>-->
+<!--    <div *ngIf="displayArray &&searchResult.value" style="margin-left: 20px;margin-top: 20px">-->
+<!--        <div *ngFor="let item of displayArray;let i=index">-->
+<!--            <div style="display: flex;flex-direction: row">-->
+<!--                <p style="margin-right: 10px"> {{item.friend_details.name}}</p>-->
+<!--                &lt;!&ndash;                <ion-button *ngIf="!isFriend(item)" (click)="addFriendtoParticipants(item,i)">Add</ion-button>&ndash;&gt;-->
+<!--                &lt;!&ndash;                <p *ngIf="isFriend(item)">Already Added</p>&ndash;&gt;-->
+<!--                <ion-checkbox *ngIf="!isFriend(item)" checked="{{item.isChecked?true:false}}"-->
+<!--                              (ionChange)="checkbox($event.detail.checked,item,i)"></ion-checkbox>-->
+
+<!--                <ion-icon *ngIf="isFriend(item)" name="checkmark-outline"></ion-icon>-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div *ngIf="displayArray.length ===0">-->
+<!--            <p>No data</p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <ion-list *ngIf="!searchResult.value">-->
+<!--        <ion-item *ngFor="let item of this.myFriendList;let i=index">-->
+<!--            <div style="display: flex;flex-direction: row">-->
+<!--                <p>{{item.friend_details.name}}</p>-->
+<!--                &lt;!&ndash;                <ion-button *ngIf="!isFriend(item)" (click)="addFriendtoParticipants(item,i)">Add</ion-button>&ndash;&gt;-->
+<!--                <ion-checkbox *ngIf="!isFriend(item)" checked="{{item.isChecked?true:false}}"-->
+<!--                              (ionChange)="checkbox($event.detail.checked,item,i)"></ion-checkbox>-->
+<!--                &lt;!&ndash;                <ion-checkbox *ngIf="isFriend(item)"  disabled="true" ></ion-checkbox>&ndash;&gt;-->
+
+<!--                &lt;!&ndash;                <p *ngIf="isFriend(item)">Already Added</p>&ndash;&gt;-->
+<!--                <ion-icon *ngIf="isFriend(item)" name="checkmark-outline"></ion-icon>-->
+<!--            </div>-->
+<!--        </ion-item>-->
+<!--    </ion-list>-->
+<!--    &lt;!&ndash;    <div *ngIf="!searchResult.value">&ndash;&gt;-->
+<!--    &lt;!&ndash;        <div *ngFor="let item of this.myFriendList;let i=index">&ndash;&gt;-->
+<!--    &lt;!&ndash;            <div style="display: flex;flex-direction: row">&ndash;&gt;-->
+<!--    &lt;!&ndash;                <p>{{item.friend_details.name}}</p>&ndash;&gt;-->
+<!--    &lt;!&ndash;                <ion-button *ngIf="!isFriend(item)" (click)="addFriendtoParticipants(item,i)">Add</ion-button>&ndash;&gt;-->
+<!--    &lt;!&ndash;                <p *ngIf="isFriend(item)">Already Added</p>&ndash;&gt;-->
+<!--    &lt;!&ndash;            </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;        </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;    </div>&ndash;&gt;-->
+
+
+<!--    <ion-button (click)="AddParticipants()">Done-->
+<!--    </ion-button>-->
+<!--    <ion-button (click)="dismiss()">Cancel-->
+<!--    </ion-button>-->
+<!--</ion-content>-->
+
+
+<!--Ahmed Ui-->
+
+
+<ion-header class="main-header">
+    <ion-toolbar>
+        <div class="header-group-create">
+            <h3><i (click)="dismiss()" class="fas fa-angle-left" ></i> Add Participants</h3>
+            <ion-button class="done-with-Group" (click)="AddParticipants()">Done</ion-button>
+
+        </div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="main-body">
+        <div class="setting-screen">
+
+            <form class="plr-15" [formGroup]="searchForMoreFriends">
+                <ion-searchbar placeholder="search for friends"
+                               formControlName="Search">
+                </ion-searchbar>
+
+
+            </form>
+
+
+            <ion-list *ngIf="displayArray &&searchResult.value">
+
+                <ion-item *ngFor="let item of displayArray;let i=index">
+                    <img *ngIf="item.friend_details.profile!=''" slot="start" [src]="item.friend_details.profile" alt="">
+                    <h6 *ngIf="item.friend_details.profile==''" slot="start">{{checkName(item.friend_details.name)}}</h6>
+
+                    <ion-label> {{item.friend_details.name}}</ion-label>
+                    <ion-checkbox *ngIf="!isFriend(item)" checked="{{item.isChecked?true:false}}"
+                                  (ionChange)="checkbox($event.detail.checked,item,i)"></ion-checkbox>
+                    <ion-icon *ngIf="isFriend(item)" name="checkmark-outline"></ion-icon>
+                </ion-item>
+
+                <div class="not-found " *ngIf="displayArray.length ===0">
+                    <img src="assets/images/no-friends.png" alt="img">
+                    <p>Not found</p>
+
+                </div>
+
+            </ion-list>
+
+            <ion-list class="list-pad-bottom" *ngIf="!searchResult.value">
+
+                <ion-item *ngFor="let item of this.myFriendList;let i=index">
+                    <img *ngIf="item.friend_details.profile!=''" slot="start" [src]="item.friend_details.profile" alt="">
+                    <h6 *ngIf="item.friend_details.profile==''" slot="start" >{{checkName(item.friend_details.name)}}</h6>
+
+                    <ion-label> {{item.friend_details.name}}</ion-label>
+                    <ion-checkbox *ngIf="!isFriend(item)" checked="{{item.isChecked?true:false}}"
+                                  (ionChange)="checkbox($event.detail.checked,item,i)"></ion-checkbox>
+
+                    <ion-icon *ngIf="isFriend(item)" name="checkmark-outline"></ion-icon>
+                </ion-item>
+
+<!--                <div *ngIf="displayArray.length ===0">-->
+<!--                    <p>No data</p>-->
+<!--                </div>-->
+
+            </ion-list>
+<!--            <div class="fixed-btn-bottom">-->
+
+<!--            <ion-button fill="outline"  (click)="AddParticipants()">Done-->
+<!--            </ion-button>-->
+<!--            <ion-button fill="outline" (click)="dismiss()">Cancel-->
+<!--            </ion-button>-->
+<!--            </div>-->
+        </div>
+    </div>
+</ion-content>

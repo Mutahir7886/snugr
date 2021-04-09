@@ -1,0 +1,55 @@
+<!--<ion-header [translucent]="true">-->
+<!--  <ion-toolbar>-->
+<!--    <ion-title>-->
+<!--     Bulb for All Groups-->
+<!--    </ion-title>-->
+<!--  </ion-toolbar>-->
+<!--</ion-header>-->
+
+<!--<ion-content [fullscreen]="true">-->
+
+<!--  <ion-button (click)="turnOnAnonymous()">Turn on Anonymous</ion-button>-->
+<!--  <ion-button (click)="turnOnByUser()"> Turn on all</ion-button>-->
+<!--  <ion-button  (click)="turnOff()">turn off on all</ion-button>-->
+<!--  <ion-button  (click)="cancel()">cancel</ion-button>-->
+<!--</ion-content>-->
+
+<!--ahmed Ui-->
+
+<!--<ion-header class="main-header">-->
+<!--  <ion-toolbar>-->
+<!--    <h3>Friends</h3>-->
+<!--    <p>Hi, buddy here you have your friend list</p>-->
+<!--  </ion-toolbar>-->
+<!--</ion-header>-->
+
+<ion-content>
+
+    <div class="main-body">
+        <div class="setting-screen">
+
+
+            <ion-list>
+
+                <ion-item (click)="turnOnByUser()">
+                    Turn on in all groups
+                </ion-item>
+
+                <ion-item (click)="turnOnAnonymous()">
+                    Turn on Anonymously in all groups
+                </ion-item>
+
+                <ion-item  (click)="turnOff()">
+                    Turn Off in all Groups
+                </ion-item>
+
+                <ion-item (click)="cancel()">
+                    Cancel
+                </ion-item>
+
+            </ion-list>
+
+        </div>
+    </div>
+
+</ion-content>

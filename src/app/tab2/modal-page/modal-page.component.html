@@ -1,0 +1,100 @@
+<!--<script src="modal-page.component.ts"></script>-->
+<!--<ion-header [translucent]="true">-->
+<!--    <ion-toolbar>-->
+<!--        <ion-title>-->
+<!--            Create Group-->
+<!--        </ion-title>-->
+<!--    </ion-toolbar>-->
+<!--</ion-header>-->
+
+<!--<ion-content [fullscreen]="true">-->
+<!--    <input style="margin-left: 20px;margin-top: 20px;margin-bottom: 20px" [(ngModel)]="groupName"-->
+<!--           placeholder="Enter Name of the Group">-->
+<!--    <form [formGroup]="searchFriendForm">-->
+<!--        <input-->
+<!--                class="input_text hover-action "-->
+<!--                style="margin-left: 20px;margin-top: 20px;margin-bottom: 20px"-->
+<!--                type="search"-->
+<!--                placeholder="search for friends"-->
+<!--                formControlName="Search">-->
+<!--    </form>-->
+<!--    <div style="display: flex;flex-direction: row;margin-left: 20px;" *ngFor="let items of dispArray;let i=index">-->
+<!--        <p>{{items.friend_details.name}}</p>-->
+<!--        &lt;!&ndash;        <ion-button [disabled]="items.selected==true" (click)="addParticipants(items,i)">Add</ion-button>&ndash;&gt;-->
+<!--        <ion-checkbox checked="{{items.isChecked?true:false}}"-->
+<!--                      (ionChange)="checkboxParticipant($event.detail.checked,items,i)"></ion-checkbox>-->
+
+<!--    </div>-->
+<!--    <div *ngIf="dispArray.length===0">-->
+<!--        No Friend Found-->
+<!--    </div>-->
+<!--    <ion-button [disabled]="groupName==''" (click)="createGroup()">Done-->
+<!--    </ion-button>-->
+<!--    <ion-button (click)="dismiss()">Cancel-->
+<!--    </ion-button>-->
+<!--</ion-content>-->
+
+
+<!--Ahmed UI-->
+
+<ion-header class="main-header">
+    <ion-toolbar>
+        <div class="header-group-create">
+            <h3><i style="margin-right: 5px" (click)="dismiss()" class="fas fa-angle-left" ></i> Create Group</h3>
+            <ion-button class="done-with-Group" *ngIf="dispArray.length!==0" [ngClass]="groupName=='' || groupName.length>15?'disableText':''" (click)="createGroup()">Done</ion-button>
+        </div>
+
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <div class="main-body">
+        <div class="setting-screen">
+            <div class="app-input ">
+                <div class="plr-20">
+                    <ion-input [(ngModel)]="groupName"
+                               placeholder="Enter Name of the Group"
+                    ></ion-input>
+                </div>
+
+                <small class="plr-15" style="color: red" *ngIf="groupName.length>15">Group Name can not be more than 12 characters</small>
+            </div>
+
+            <form class="plr-15" [formGroup]="searchFriendForm">
+                <ion-searchbar type="search"
+                               placeholder="search for friends"
+                               formControlName="Search">
+
+                </ion-searchbar>
+            </form>
+
+            <ion-list class="list-pad-bottom">
+
+                <ion-item *ngFor="let items of dispArray;let i=index">
+                    <img *ngIf="items.friend_details.profile!=''"  slot="start" [src]="items.friend_details.profile" alt="">
+                    <h6 *ngIf="items.friend_details.profile==''"  slot="start" >{{checkName(items.friend_details.name)}}</h6>
+                    <ion-label>{{items.friend_details.name}}</ion-label>
+
+                    <ion-checkbox slot="end" checked="{{items.isChecked?true:false}}"
+                                  (ionChange)="checkboxParticipant($event.detail.checked,items,i)"></ion-checkbox>
+
+                </ion-item>
+
+                <div *ngIf="dispArray.length===0" class="not-found ">
+                    <img src="assets/images/no-friends.png" alt="img">
+                    <p>No Friend Found</p>
+
+                </div>
+
+            </ion-list>
+
+<!--            <div *ngIf="dispArray.length!==0" class="fixed-btn-bottom">-->
+<!--                <ion-button fill="outline" [disabled]="groupName=='' || groupName.length>15" (click)="createGroup()">Done-->
+<!--                </ion-button>-->
+<!--                <ion-button fill="outline" (click)="dismiss()">Cancel-->
+<!--                </ion-button>-->
+<!--            </div>-->
+        </div>
+    </div>
+</ion-content>

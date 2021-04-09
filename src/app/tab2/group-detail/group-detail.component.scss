@@ -1,0 +1,107 @@
+.disableClass {
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+.disableEditButton {
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+
+.putborder {
+  border-bottom: 1px solid #919191;
+}
+
+
+.BrokenImage {
+  width: 65px;
+  height: 65px;
+  line-height: 65px;
+  border-radius: 50%;
+  background: #D8D8D8;
+  text-align: center;
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  color: #A8A8A8;
+}
+
+
+.temporaryGroupDetailContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.container {
+  //border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  padding: 15px 10px;
+  margin: 10px 20px;
+}
+
+.time-right {
+  float: right;
+  margin-right:20px ;
+  color: #aaa;
+}
+.chat-person{
+  margin-top: 0px !important;
+  color: #616161;
+}
+
+.img-in-chat
+{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.enter-message{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin:0px 5px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 11;
+  background-color: #ffffff !important;
+  padding: 5px;
+}
+.toggle{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.sliding-listing ion-item-sliding ion-item {
+  --inner-border-width:0 0 1px 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .container{
+    background-color: #3C3C3E;
+    border:0;
+    p{
+      color: #ffffff;
+    }
+
+  }
+
+  .chat-person{
+    color: #B3DE35;
+
+  }
+
+  .enter-message{
+    background-color: #1e1e1e !important;
+  }
+}

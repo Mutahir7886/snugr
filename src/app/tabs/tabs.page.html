@@ -1,0 +1,59 @@
+<!--<ion-tabs>-->
+
+<!--  <ion-tab-bar slot="bottom">-->
+<!--    <ion-tab-button tab="tab1">-->
+<!--      <ion-icon name="triangle"></ion-icon>-->
+<!--      <ion-label>My friends</ion-label>-->
+<!--    </ion-tab-button>-->
+
+<!--    <ion-tab-button tab="tab2">-->
+<!--      <ion-icon name="ellipse"></ion-icon>-->
+<!--      <ion-label>Groups</ion-label>-->
+<!--    </ion-tab-button>-->
+
+<!--    <ion-tab-button tab="tab3">-->
+<!--      <ion-icon name="square"></ion-icon>-->
+<!--      <ion-label>Settings</ion-label>-->
+<!--    </ion-tab-button>-->
+
+<!--    <ion-tab-button tab="tab4">-->
+<!--      <ion-icon name="square"></ion-icon>-->
+<!--      <span *ngIf="this.showNewNotification">.</span>-->
+<!--      <ion-label>Notifications</ion-label>-->
+<!--    </ion-tab-button>-->
+
+<!--  </ion-tab-bar>-->
+
+<!--</ion-tabs>-->
+
+
+<!--AHmed UI Integraion-->
+
+<ion-tabs class="footer-tabs-wrapper" #tabGroups >
+
+  <ion-tab-bar slot="bottom"  >
+
+    <ion-tab-button  tab="tab2" [ngClass]="selected == 'tab2'?'tab-selected':''">
+      <i class="fas fa-users"></i>
+      <ion-label>Groups</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button  tab="tab1">
+      <i class="fas fa-user-friends"></i>
+      <ion-label>Friends</ion-label>
+    </ion-tab-button>
+
+
+    <ion-tab-button   tab="tab4" [ngClass]="selected == 'tab4'?'tab-selected tab-selected':''">
+      <i class="far fa-bell"><small *ngIf="this.showNewNotification"></small></i>
+      <ion-label>Notifications</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab3">
+      <i class="fas fa-cog"></i>
+      <ion-label>Settings</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+
+</ion-tabs>

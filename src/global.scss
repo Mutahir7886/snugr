@@ -1,0 +1,1152 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+body {
+  font-family: 'SFPro Regular' !important;
+  color: #666 !important;
+}
+
+*:not(ion-icon, i) {
+  font-family: 'SFPro Regular' !important;
+}
+
+/*
+* FONT FAMILY
+* -------------------------------------------
+*/
+
+@font-face {
+  font-family: 'SFPro Bold';
+  src: url('assets/fonts/SFProText-Bold.woff2') format('woff2'),
+  url('assets/fonts/SFProText-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SFPro Semibold';
+  src: url('assets/fonts/SFProText-Semibold.woff2') format('woff2'),
+  url('assets/fonts/SFProText-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SFPro Regular';
+  src: url('assets/fonts/SFProText-Regular.woff2') format('woff2'),
+  url('assets/fonts/SFProText-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SFPro Medium';
+  src: url('assets/fonts/SFProText-Medium.woff2') format('woff2'),
+  url('assets/fonts/SFProText-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*
+* NORMALIZE CSS
+* -------------------------------------------
+*/
+
+.small-icon{
+  font-size: 12px !important;
+}
+.clr-yellow{
+  color: #E8C339 !important;
+}
+
+.chatBox-wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 60px !important;
+}
+
+.d-flex{
+  display: flex !important;
+}
+
+ion-searchbar {
+  ion-icon {
+    left: 8px !important;
+    width: 18px !important;
+  }
+}
+
+p {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-family: 'SFPro Medium';
+  letter-spacing: -0.16px;
+
+  strong {
+    font-family: 'SFPro Bold';
+  }
+}
+
+h3 {
+  font-size: 22px;
+  font-family: 'SFPro Semibold';
+  margin: 0 0 4px;
+  letter-spacing: -0.28px;
+}
+
+p,
+h3 {
+  color: #616161;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.p-0 {
+  padding: 0px !important;
+}
+
+.plr-5 {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+
+.plr-10 {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+.plr-15 {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+.plr-20 {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.pt-5 {
+  padding-top: 5px !important;
+}
+
+.pt-10 {
+  padding-top: 10px !important;
+}
+
+.pt-15 {
+  padding-top: 15px !important;
+}
+
+.pt-20 {
+  padding-top: 20px !important;
+}
+
+.pb-5 {
+  padding-bottom: 5px !important;
+}
+
+.pb-10 {
+  padding-bottom: 10px !important;
+}
+
+.pb-15 {
+  padding-bottom: 15px !important;
+}
+
+.pb-20 {
+  padding-bottom: 20px !important;
+}
+
+.m-0 {
+  margin: 0px !important;
+}
+
+.mt-5 {
+  margin-top: 5px !important;
+}
+
+.mt-10 {
+  margin-top: 10px !important;
+}
+
+.mt-15 {
+  margin-top: 15px !important;
+}
+
+.mt-20 {
+  margin-top: 20px !important;
+}
+
+.mb-5 {
+  margin-bottom: 5px !important;
+}
+
+.mb-10 {
+  margin-bottom: 10px !important;
+}
+
+.mb-15 {
+  margin-bottom: 15px !important;
+}
+
+.mb-20 {
+  margin-bottom: 20px !important;
+}
+
+/*
+* SIGNUP STYLING
+* -------------------------------------------
+*/
+
+#signup-screen {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 30px;
+}
+
+#signup-screen {
+  p {
+    margin: 0 0 18px !important;
+    font-size: 16px !important;
+  }
+
+  img {
+    max-width: 207px;
+  }
+
+  .logo-dark {
+    display: none;
+  }
+
+  .logo-light {
+    display: inline-block;
+  }
+}
+
+#signup-screen {
+  ion-button {
+    font-family: 'SFPro Regular' !important;
+    margin: 30px 0px;
+
+    i {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+}
+
+/*
+* LOGIN STYLING
+* -------------------------------------------
+*/
+
+.auth-profile {
+  padding: 35px 0px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  .in-left {
+    img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+  .in-right {
+    padding-left: 15px;
+    padding-bottom: 15px;
+
+    p {
+      opacity: 0.7;
+    }
+  }
+}
+
+.Allow {
+  opacity: 1;
+
+}
+
+.NotAllow {
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+.HideEdit {
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+.ShowEdit {
+  opacity: 1;
+}
+
+.app-input {
+  margin-bottom: 30px;
+
+  label {
+    font-family: 'SFPro SemiBold' !important;
+    opacity: 0.7;
+    font-size: 16px;
+    letter-spacing: -0.19px;
+    margin-bottom: 5px;
+    display: inline-block;
+
+    i {
+      display: inline-block;
+      margin-right: 5px;
+    }
+  }
+
+  ion-input {
+    font-size: 14px;
+    font-family: 'SFPro Medium' !important;
+    border-bottom: 1px solid rgb(134 134 134 / 40%);
+  }
+
+  input {
+  }
+}
+
+.app-submit-btn {
+  text-align: center;
+
+  ion-button {
+    --border-radius: 0px;
+    border-radius: 0px;
+    min-width: 210px;
+    font-family: 'SFPro SemiBold' !important;
+    letter-spacing: -0.21px;
+    height: 47px;
+  }
+}
+
+
+/*
+* HEADER STYLING
+* -------------------------------------------
+*/
+
+.main-header {
+  padding-top: var(--ion-safe-area-top) !important;
+
+  &::after {
+    background-image: none !important;
+  }
+
+  ion-toolbar {
+    --border-width: 0 !important;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    &::after {
+      content: "";
+      background: url('assets/images/header-bg-light.png') no-repeat right bottom;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      background-size: contain;
+    }
+  }
+
+  ion-toolbar.header-bg-none {
+    padding: 0;
+    --padding-top: 0px;
+    --padding-bottom: 0px;
+    --padding-start: 0px;
+    --padding-end: 0px;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  h3 {
+    margin: 8px 0 5px;
+  }
+
+  p {
+    margin: 0;
+    font-family: 'SFPro Medium';
+  }
+
+  /* HEADER WITHOUT BG */
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    box-shadow: 0 -3px 8px 0 rgba(0, 0, 0, 0.5);
+
+    .main-left {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+
+      .in-left {
+        position: relative;
+
+        img {
+          width: 75px;
+          height: 75px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        i {
+          display: block;
+          width: 22px;
+          height: 22px;
+          line-height: 22px;
+          text-align: center;
+          border-radius: 50%;
+          background: #E8C338;
+          font-size: 12px;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          z-index: 11;
+        }
+      }
+
+      .in-right {
+        padding-left: 10px;
+        overflow: hidden;
+
+        h3 {
+          font-size: 18px;
+          margin: 0 0 5px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+
+        small {
+          display: block;
+          color: #AEAEAE;
+          font-size: 12px;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .main-right {
+      img {
+        position: relative;
+        margin-top: -10px;
+        max-width: 90px;
+      }
+    }
+  }
+
+  .group-heading {
+    padding: 15px 20px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h3 {
+      margin: 0;
+    }
+  }
+
+}
+
+/*
+* BODY CONTENT STYLING
+* -------------------------------------------
+*/
+
+.header-group-create {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.disableText {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.done-with-Group {
+  --background: #f4c41f;
+  --color: #000;
+
+}
+
+.main-body {
+  border-radius: 33px 33px 0px 0px;
+  box-shadow: 0px -3px 11px 0px rgba(0, 0, 0, 0.16);
+  margin: 13px 0 0;
+  min-height: calc(100% - 13px);
+  padding: 25px 0px 15px;
+  overflow: hidden;
+}
+
+.SearchBarStyling {
+  padding: 0px 15px;
+}
+
+/*
+* NOTIFICATION SCREEN
+* -------------------------------------------
+*/
+
+.notification-screen {
+  ion-card-header {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .in-left {
+    img {
+      width: 49px;
+      height: 49px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  .in-right {
+    padding-left: 10px;
+  }
+}
+
+/*
+* Setting SCREEN
+* -------------------------------------------
+*/
+
+.setting-screen {
+  ion-list {
+    --background: transparent !important;
+    background: transparent !important;
+
+    ion-item {
+      --min-height: 55px;
+      --background: transparent !important;
+      background: transparent !important;
+
+      ion-label {
+        margin: 0px;
+        font-family: 'SFPro Medium' !important;
+        font-size: 14px !important;
+        opacity: 0.8;
+      }
+
+      ion-button {
+        font-family: 'SFPro Medium' !important;
+        --border-radius: 3px !important;
+        min-width: 60px;
+      }
+
+      i {
+        opacity: 0.7;
+        font-size: 18px;
+      }
+
+      img {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      h6 {
+        width: 38px;
+        height: 38px;
+        line-height: 38px;
+        border-radius: 50%;
+        background: #D8D8D8;
+        text-align: center;
+        margin-bottom: 0;
+        margin-top: 0;
+        font-size: 18px;
+        font-weight: 600;
+        color: #A8A8A8;
+      }
+    }
+  }
+}
+
+/*
+* GROUPS SCREEN
+* -------------------------------------------
+*/
+
+.sliding-listing {
+  padding: 15px 15px;
+  background: transparent !important;
+
+  ion-item-sliding {
+    ion-item {
+      //--background: #5D38E8;
+      margin: 5px 0;
+      --inner-border-width: 0px;
+      border-radius: 8px;
+
+      .group-sliding {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .main-left {
+          display: flex;
+          align-items: center;
+          padding: 10px 0;
+
+          .in-left {
+            h6 {
+              width: 55px;
+              height: 55px;
+              line-height: 55px;
+              border-radius: 50%;
+              background: #D8D8D8;
+              text-align: center;
+              margin: 0;
+              font-size: 28px;
+              font-weight: 600;
+              color: #A8A8A8;
+            }
+          }
+
+          .in-right {
+            padding-left: 13px;
+
+            h6 {
+              color: #FFF;
+              font-size: 16px;
+              font-weight: 600;
+              line-height: 19px;
+              margin: 0 0 5px;
+            }
+          }
+
+          span {
+            display: block;
+            color: #FFF;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 14px;
+
+            i {
+              display: inline-block;
+              margin-right: 2px;
+            }
+          }
+        }
+
+        .main-right {
+          line-height: 0px;
+
+          img {
+          }
+        }
+      }
+    }
+
+    ion-item-options {
+      ion-item-option {
+        background: transparent;
+
+        .action-icon {
+          text-align: center;
+          i {
+            color: #E8C338;
+            display: block;
+            border: 1px solid #888;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 13px;
+            border-radius: 50%;
+            margin: 0 auto;
+          }
+
+          small {
+            color: #E8C338;
+            display: block;
+            font-size: 11px;
+            margin-top: 4px;
+          }
+        }
+      }
+    }
+
+    //&:nth-child(2n+2) {
+    //  ion-item {
+    //    --background: #A450D8;
+    //  }
+    //}
+    //
+    //&:nth-child(3n+3) {
+    //  ion-item {
+    //    --background: #EC4C37;
+    //  }
+    //}
+    //
+    //&:nth-child(4n+4) {
+    //  ion-item {
+    //    --background: #ED4257;
+    //  }
+    //}
+    //
+    //&:nth-child(5n+5) {
+    //  ion-item {
+    //    --background: #078C8F;
+    //  }
+    //}
+    //
+    //&:nth-child(6n+6) {
+    //  ion-item {
+    //    --background: #54078F;
+    //  }
+    //}
+  }
+}
+
+/*
+* GROUPS DETAIL SCREEN
+* -------------------------------------------
+*/
+
+.detail-top-header {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  .head-left {
+    padding-top: 20px;
+    width: 60px;
+
+    h5 {
+      font-size: 16px;
+      font-family: "SFPro Semibold";
+      margin: 0;
+
+      i {
+        display: inline-block;
+        margin-right: 2px;
+        transform: translateY(1px);
+      }
+    }
+  }
+
+  .head-middle {
+    img {
+      height: 35vh;
+      object-fit: contain;
+      transition: all 0.4s;
+    }
+  }
+
+
+
+  .head-right {
+    padding-top: 20px;
+    text-align: center;
+    width: 65px;
+
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    h5 {
+      margin: 3px 0 0;
+      font-size: 11px;
+      font-weight: 500;
+      color: #666;
+    }
+  }
+}
+
+ion-header.sticky {
+  .head-middle {
+    img {
+      height: 10vh;
+      //transition:  height 1s;
+    }
+  }
+}
+
+.sticky1{
+  min-height: 65vh;
+  transition: height 1s;
+}
+
+
+.detail-bottom-header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  position: relative;
+  margin-top: -70px;
+
+  .toggle-buttons {
+    text-align: center;
+
+    img {
+      max-width: 30px;
+    }
+
+    .light-img {
+      display: none;
+    }
+
+    .dark-img {
+      display: inline-block;
+    }
+
+    i {
+      color: #616161;
+      font-size: 24px;
+      display: block;
+      margin-top: 8px;
+    }
+  }
+}
+
+.group-detail-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px 8px;
+
+  .inner-left {
+    display: flex;
+    align-items: center;
+
+    .in-left {
+      h6 {
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        border-radius: 50%;
+        background: #D8D8D8;
+        text-align: center;
+        margin: 0;
+        font-size: 22px;
+        font-weight: 600;
+        color: #A8A8A8;
+      }
+    }
+
+    .in-right {
+      padding-left: 10px;
+
+      h3 {
+        margin: 0 0 3px;
+        font-size: 18px;
+
+        i {
+          color: #E8C338;
+          font-size: 10px;
+          display: inline-block;
+          margin-left: 4px;
+        }
+      }
+
+      small {
+        color: #666;
+        display: block;
+        font-weight: 500;
+        font-size: 11px;
+
+        i {
+          display: inline-block;
+          margin-right: 3px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .inner-right {
+    i {
+      color: #616161;
+      font-size: 24px;
+      display: block;
+    }
+  }
+}
+
+
+/* ---------------------------------- */
+
+.group-members {
+  text-align: center;
+  padding: 5px 0;
+
+  .member-image {
+    position: relative;
+
+    img {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    i {
+      display: block;
+      width: 22px;
+      height: 22px;
+      line-height: 22px;
+      text-align: center;
+      border-radius: 50%;
+      background: #E8C338;
+      font-size: 10px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 11;
+    }
+  }
+
+  h5 {
+    margin: 3px 0 0;
+    font-size: 11px;
+    font-weight: 500;
+    color: #666;
+  }
+
+  small {
+    display: block;
+    font-size: 9px;
+    margin-top: 1px;
+  }
+}
+
+/* ---------------------------------- */
+.middle-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.not-found {
+  text-align: center;
+  padding: 10px;
+
+  p {
+    font-size: 20px;
+    margin-top: 20px;
+    color: #a7a7a7;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 50vh;
+  }
+}
+
+.list-pad-bottom {
+  padding-bottom: 50px !important;
+}
+
+.fixed-btn-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background: #fff;
+  padding: 12px;
+
+  ion-button {
+    margin: 0px 7px;
+  }
+}
+
+/*
+* BODY CONTENT STYLING CLOSED
+* -------------------------------------------
+*/
+
+/*
+* FOOTER STYLING
+* -------------------------------------------
+*/
+
+.footer-tabs-wrapper {
+
+  ion-tab-bar {
+    --background: #F4F4F4;
+    border-radius: 20px 20px 0px 0px;
+    height: 60px;
+    --border: none;
+
+    ion-label {
+      font-family: 'SFPro Medium' !important;
+      font-size: 12px;
+      margin-top: 4px;
+      margin-bottom: 0px;
+    }
+  }
+
+}
+
+.infinite-scroll {
+  box-shadow: 0px -3px 11px 0px rgb(0 0 0 / 16%);
+
+  background-color: #ffffff;
+
+}
+
+.footer-tabs-wrapper {
+  ion-tab-bar {
+    i {
+      font-size: 20px;
+      position: relative;
+
+      small {
+        display: block;
+        background: #E8C338;
+        color: #000;
+        font-size: 9px;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        text-align: center;
+        border-radius: 50%;
+        position: absolute;
+        top: -5px;
+        right: -8px;
+        font-family: 'SFPro Bold' !important;
+      }
+    }
+  }
+}
+
+/*
+* Custom CSS FOR DARK MOOD
+* -------------------------------------------
+*/
+
+@media (prefers-color-scheme: dark) {
+
+  p, h3 {
+    color: #fff;
+  }
+
+  .infinite-scroll {
+    background-color: #161616;
+  }
+
+  .done-with-Group {
+    --background: #f4c41f;
+    --color: #fff !important;
+    color: #fff !important;
+
+  }
+
+  .detail-bottom-header {
+    .toggle-buttons {
+      .light-img {
+        display: inline-block;
+      }
+
+      .dark-img {
+        display: none;
+      }
+    }
+  }
+
+  .main-header {
+    .header-inner {
+      background-color: #161616;
+      box-shadow: 0 0 11px 1px rgba(232, 195, 56, 0);
+    }
+  }
+
+
+  ion-content {
+    --background: #0d0d0d;
+  }
+
+  #signup-screen .logo-dark {
+    display: inline-block;
+  }
+
+  #signup-screen .logo-light {
+    display: none;
+  }
+
+  .footer-tabs-wrapper {
+    background: #161616;
+  }
+
+  .main-body {
+    box-shadow: 0px 0px 11px 1px rgba(232, 195, 56, 0);
+    background: #161616;
+  }
+
+  h3 {
+    color: #fff;
+  }
+
+  .footer-tabs-wrapper ion-tab-bar {
+    --background: #262626;
+  }
+
+  .fixed-btn-bottom {
+    background: #161616;
+  }
+
+}
+
+.CreateGroup {
+  color: #E8C338;
+  font-size: 18px;
+}

@@ -1,0 +1,153 @@
+<!--<ion-header [translucent]="true">-->
+<!--    <ion-toolbar>-->
+<!--        <ion-title>-->
+<!--            Groups-->
+<!--        </ion-title>-->
+<!--    </ion-toolbar>-->
+<!--</ion-header>-->
+
+<!--<ion-content [fullscreen]="true">-->
+
+
+<!--    &lt;!&ndash;    <div style="width: 50%;border-radius: 20%;border: 2px solid black">&ndash;&gt;-->
+
+<!--    &lt;!&ndash;    </div>&ndash;&gt;-->
+
+<!--    <ion-button (click)="createGroup()">Create Group-->
+<!--        <ion-icon name="add-circle-outline"></ion-icon>-->
+<!--    </ion-button>-->
+<!--    <ion-button (click)="turnAllbulbs()">Turn All Bulbs</ion-button>-->
+
+<!--    <div>-->
+<!--        <div *ngIf="groupList.length===0">-->
+<!--            No Groups Present-->
+<!--        </div>-->
+<!--        <ion-list>-->
+<!--            <ion-spinner *ngIf="showGroups"></ion-spinner>-->
+<!--            <ion-item-sliding *ngFor="let item of groupList;let i=index">-->
+
+<!--                <ion-item (click)="showDetails(item)">-->
+<!--                    <div style="display: flex;justify-content: center">-->
+<!--                        <div class="groupDiv">-->
+<!--                            <div style="display: flex;flex-direction: row;justify-content: space-between">-->
+<!--&lt;!&ndash;                                <div>{{nameDiv(item.name)}}</div>&ndash;&gt;-->
+<!--                                <h2>{{item.name}}</h2>-->
+<!--                                <p *ngIf="bulbStatus(item)">ON</p>-->
+<!--                                <p *ngIf="!bulbStatus(item)">OFF</p>-->
+<!--                            </div>-->
+<!--                            <p>Members {{checkTotalMembers(item)}}</p>-->
+<!--                            &lt;!&ndash;                            <div *ngFor="let participants of item.participants">&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                <p>{{participants.user_details.name}}</p>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                </ion-item>-->
+
+<!--                <ion-item-options side="end">-->
+<!--                    <ion-button *ngIf="checkForAdmin(item)" color="danger" style="margin-top: 15%;margin-right: 2%"-->
+<!--                                (click)="deleteGroup(i,item._id)">Delete-->
+<!--                    </ion-button>-->
+<!--                    <ion-button *ngIf="!checkForAdmin(item)" style="background: red;margin-top: 15%;margin-right: 2%"-->
+<!--                                (click)="leaveGroup(i,item._id)">Leave-->
+<!--                    </ion-button>-->
+<!--                </ion-item-options>-->
+<!--            </ion-item-sliding>-->
+
+<!--        </ion-list>-->
+<!--    </div>-->
+<!--    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">-->
+<!--        <ion-infinite-scroll-content-->
+<!--                loadingSpinner="bubbles"-->
+<!--                >-->
+<!--        </ion-infinite-scroll-content>-->
+<!--    </ion-infinite-scroll>-->
+<!--</ion-content>-->
+
+
+<!--Ahmed UI-->
+
+<ion-header class="main-header">
+    <ion-toolbar class="header-bg-none">
+        <div class="header-inner">
+            <div class="main-left">
+                <div class="in-left">
+                    <img [src]="profilePic" alt="">
+                    <i (click)="Invite()" class="fas fa-share-alt"></i>
+                </div>
+                <div class="in-right">
+                    <h3>{{name}}</h3>
+                    <small>{{username}}</small>
+                    <small>Join Groups</small>
+                </div>
+            </div>
+            <div class="main-right">
+                <img (click)="turnAllByActionSheet()" src="assets/images/bulb-header.svg" alt="">
+            </div>
+        </div>
+        <div class="group-heading">
+            <h3>Groups</h3>
+            <!--            <ion-button (click)="createGroup()" slot="end" fill="outline">Add</ion-button>-->
+                        <ion-icon style="color:#f4c41f;font-size: 25px" (click)="createGroup()" name="add-circle-outline"></ion-icon>
+<!--            <i (click)="createGroup()" class="fas fa-edit CreateGroup"></i>-->
+        </div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="main-body">
+        <div class="group-main-screen">
+            <div class="not-found middle-container"  *ngIf="groupList.length===0">
+                <img src="assets/images/no-groups1.svg" alt="img">
+                <p>No Groups yet!</p>
+
+            </div>
+
+            <ion-list class="sliding-listing">
+                <ion-item-sliding *ngFor="let item of groupList;let i=index">
+                    <ion-item [style.--background]="item.color" (click)="showDetails(item)">
+                        <div class="group-sliding">
+                            <div class="main-left">
+                                <div class="in-left">
+                                    <h6>{{nameDiv(item.name)}}</h6>
+                                </div>
+                                <div class="in-right">
+                                    <h6>{{item.name}}</h6>
+                                    <span><i class="fas fa-users"></i> Members {{checkTotalMembers(item)}}</span>
+                                </div>
+                            </div>
+                            <div class="main-right">
+                                <img *ngIf="!bulbStatus(item)" src="assets/images/off-bulb1.svg" alt="">
+                                <img *ngIf="bulbStatus(item)" src="assets/images/on-bulb1.svg" alt="">
+
+
+                            </div>
+                        </div>
+                    </ion-item>
+                    <ion-item-options side="end">
+                        <ion-item-option expandable>
+                            <div class="action-icon">
+                                <img *ngIf="checkForAdmin(item)"
+                                     (click)="deleteGroup(i,item._id)" src="assets/images/delete.svg" alt="img">
+                                <img *ngIf="!checkForAdmin(item)"
+                                     (click)="leaveGroup(i,item._id)" src="assets/images/leave.svg" alt="img">
+
+
+                            </div>
+                        </ion-item-option>
+                    </ion-item-options>
+                </ion-item-sliding>
+
+            </ion-list>
+            <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+                <ion-infinite-scroll-content
+                        loadingSpinner="bubbles"
+                        loadingText="Loading more data..."
+                >
+                </ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+        </div>
+    </div>
+
+</ion-content>

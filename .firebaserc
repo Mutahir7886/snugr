@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "snugr-6cb14": {
+      "hosting": {
+        "app": [
+          "snugr-6cb14"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,213 @@
+<!--<ion-header>-->
+<!--    <ion-toolbar>-->
+<!--        <ion-title>-->
+<!--            Group Details-->
+<!--        </ion-title>-->
+<!--        <ion-buttons slot="start">-->
+<!--            <ion-icon name="arrow-back-outline" (click)="moveBack()"></ion-icon>-->
+<!--        </ion-buttons>-->
+<!--    </ion-toolbar>-->
+<!--</ion-header>-->
+<!--<ion-content [fullscreen]="true">-->
+
+<!--    &lt;!&ndash;<ion-item> Group Made By: {{groudDetail.username}}</ion-item>&ndash;&gt;-->
+
+<!--    <div style="display: flex;flex-direction: row;justify-content: space-between">-->
+<!--        <ion-input [disabled]="showEdit" [(ngModel)]="groupName"></ion-input>-->
+<!--        <ion-icon style="margin-top: 20px" *ngIf="showEditIcon" (click)="check()" name="pencil-outline"></ion-icon>-->
+<!--        <ion-icon style="margin-top: 20px" *ngIf="showSave" (click)="saveGroupName()"-->
+<!--                  name="checkmark-outline"></ion-icon>-->
+<!--        <ion-item *ngIf="groudDetail"> {{checkadmin()}}</ion-item>-->
+<!--        <ion-button *ngIf="groudDetail && checkforAdmin()" (click)="deleteGroup()">Delete</ion-button>-->
+<!--        <ion-button *ngIf="groudDetail && !checkforAdmin()" (click)="leaveGroup()"> Leave</ion-button>-->
+
+<!--    </div>-->
+<!--    <div *ngIf="groudDetail">-->
+
+<!--        <p *ngIf="checkBulbStatus()"><span style="font-weight: bold">Bulb Status</span> ON</p>-->
+<!--        <p *ngIf="!checkBulbStatus()"><span>Bulb Status</span> OFF</p>-->
+<!--        <p *ngIf="checkBulbStatus()"><span>User Status</span> {{checkUser()}}</p>-->
+<!--        <ion-button [hidden]="checkAnanoymousButton()" (click)="turnbulbAnonymous()"> Bulb Anonymous</ion-button>-->
+<!--        <ion-button [hidden]="checkUserButton()" (click)="turnbulb()"> Bulb by USer</ion-button>-->
+<!--        <ion-button (click)="AddParticpants()">Add</ion-button>-->
+<!--        <div *ngFor="let item of groudDetail.participants">-->
+<!--            <p>{{item.user_details.name}} <span style="color: brown"> {{checkparticipantadmin(item)}}</span></p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</ion-content>-->
+
+
+<!--ahmed-->
+
+<ion-header class="main-header detail-header" [ngClass]="header">
+    <ion-toolbar class="header-bg-none">
+        <div style="width: 100%;">
+        <div class="header-inner d-block">
+            <div class="detail-top-header">
+                <div (click)="moveBack()" class="head-left">
+                    <h5><i class="fas fa-angle-left"></i> Back</h5>
+                </div>
+                <div *ngIf="groudDetail" class="head-middle">
+                    <img (click)="bulbToggling()" *ngIf="checkBulbStatus()" src="assets/images/long-bulb1.png" alt="">
+                    <img  (click)="bulbToggling()" *ngIf="!checkBulbStatus()" src="assets/images/long-bulb1-off.png" alt="">
+                </div>
+                <div *ngIf="groudDetail" class="head-right">
+                    <img *ngIf="checkBulbStatus()" src="{{checkUserProfile()}}" alt="">
+                    <h5 *ngIf="checkBulbStatus()">{{checkUser()}}</h5>
+                </div>
+            </div>
+            <div  class="toggle" *ngIf="groudDetail">
+                <p [hidden]="groudDetail.bulb_status==true">Anonymous Mode</p>
+                <div class="d-flex ion-align-items-center" >
+                    <p [hidden]="groudDetail.bulb_status==true" class="mb-0 mr-2"><small>Off</small></p>
+                        <ion-toggle style="margin: 10px;" [hidden]="groudDetail.bulb_status==true" [checked]="checkUserButton()" (ionChange)="checkforToggle($event)"> </ion-toggle>
+                    <p [hidden]="groudDetail.bulb_status==true" class="mb-0 ml-2"><small>On</small></p>
+                </div>
+
+            </div>
+            
+        </div>
+        <div *ngIf="groudDetail" class="group-detail-heading">
+            <div class="inner-left">
+                <div class="in-left">
+                    <h6>{{nameSuffix(groupName)}}</h6>
+                </div>
+                <div class="in-right">
+                    <h3 style="display: flex;align-items: center">
+                        <ion-input [class.putborder]="!showEdit" style="width:140px;" [disabled]="showEdit"
+                                   [(ngModel)]="groupName"></ion-input>
+                        <!--                        <i class="fas fa-user-edit" *ngIf="showEditIcon" (click)="check()"></i>-->
+                        <i [class.disableClass]="groupName.length>15" *ngIf="showSave" (click)="saveGroupName()"
+                           class="fas fa-check"></i>
+                    </h3>
+                    <small style="color: red" *ngIf="groupName.length>15"> Name must not be more than 15
+                        characters</small>
+                    <small><i class="fas fa-users"></i> Members {{groudDetail.participants.length}}</small>
+
+                </div>
+            </div>
+            <div *ngIf="groudDetail" class="inner-right">
+                <ion-icon (click)="openDetails()" name="ellipsis-horizontal-outline"></ion-icon>
+                <!--                <ion-button (click)="AddParticpants()">Add</ion-button>-->
+                <!--                <img *ngIf="groudDetail && checkforAdmin()" (click)="deleteGroup()" src="assets/images/delete.png"-->
+                <!--                     alt="img">-->
+                <!--                <img *ngIf="groudDetail && !checkforAdmin()" (click)="leaveGroup()" src="assets/images/leave.png"-->
+                <!--                     alt="img">-->
+
+            </div>
+        </div>
+        <ion-segment value="chat"  (ionChange)="segmentChanged($event)">
+            <ion-segment-button value="chat">
+                <ion-label style="text-transform: capitalize "><i class="fas fa-users"></i> Participants</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="comments">
+                <ion-label style="text-transform: capitalize "><i class="far fa-comment-alt"></i> Comments</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true">
+
+    <div  [ngClass]="content" class="main-body">
+        <div class="setting-screen">
+
+
+<!--            For Scroll Div-->
+
+            <div *ngIf="showSegment=='comments'">
+                <ion-infinite-scroll *ngIf="showScroller" threshold="100px" position="top" (ionInfinite)="loadData($event)">
+                    <ion-infinite-scroll-content
+                            class="infinite-scroll"
+                            loadingSpinner="bubbles"
+                            loadingText="Loading more data..."
+                    >
+                    </ion-infinite-scroll-content>
+                </ion-infinite-scroll>
+            </div>
+
+
+<!--            ionlist for members-->
+
+            <div >
+
+
+            <ion-list   *ngIf="groudDetail &&showSegment=='chat'" class="sliding-listing">
+
+                <ion-item-sliding *ngFor="let item of groudDetail.participants;let i=index">
+                    <ion-item>
+                            <img slot="start" *ngIf="item.user_details.profile!=''" [src]="item.user_details.profile"
+                                 alt="img">
+                            <h6 slot="start" *ngIf="item.user_details.profile==''">
+                                {{checkName(item.user_details.name)}}
+                            </h6>
+<!--                            <i *ngIf="checkparticipantadmin(item)" class="fas fa-user-check"></i>-->
+                            <ion-label>{{item.user_details.name}}<small class="clr-yellow" *ngIf="item.user_details._id==myUserId">(u)</small> <br><small class="clr-yellow" *ngIf="item.is_admin == true"><i class="fas fa-user-graduate small-icon"></i> {{checkparticipantadmin(item)}}</small></ion-label>
+
+
+
+                    </ion-item>
+
+                    <ion-item-options side="end">
+<!--                        <ion-button [hidden]="item.user_details._id==myUserId" *ngIf="checkforAdmin()"  (click)="removeParticipant(item._id,i)"  slot="end" fill="outline"-->
+<!--                        >Remove-->
+<!--                        </ion-button>-->
+<!--                        <div style="display: flex;flex-direction: row;justify-content: space-evenly;flex-grow: 1">-->
+<!--                            <p (click)="openExternal( item.user_details.messenger_id)">messenger</p>-->
+<!--                            <p (click)="sendSms(item.user_details.phone)">sms</p>-->
+<!--                        </div>-->
+                        <ion-item-option [hidden]="item.user_details._id==myUserId">
+                            <div class="action-icon" (click)="sendSms(item.user_details.phone)">
+                                <i class="fas fa-sms"></i>
+                                <small>SMS</small>
+                            </div>
+                        </ion-item-option>
+                        <ion-item-option [hidden]="item.user_details._id==myUserId">
+                        <div class="action-icon" (click)="openExternal( item.user_details.messenger_id)">
+                            <i class="fab fa-facebook-messenger"></i>
+                            <small>Messenger</small>
+                        </div>
+                        </ion-item-option>
+                        <ion-item-option [hidden]="item.user_details._id==myUserId" *ngIf="checkforAdmin()"  (click)="removeParticipant(item._id,i)">
+                        <div class="action-icon">
+                            <i class="fas fa-trash-alt"></i>
+                            <small>Remove</small>
+                        </div>
+                        </ion-item-option>
+
+                    </ion-item-options>
+                </ion-item-sliding>
+
+            </ion-list>
+            </div>
+            <div  class="chatBox-wrapper" *ngIf="showSegment=='comments'">
+
+                <div *ngFor="let item of chatMessages" class="container" id="{{item.date}}">
+    <!--                    <img class="img-in-chat" slot="start" *ngIf="item.user.profile!=''" [src]="item.user.profile"-->
+    <!--                         alt="img">-->
+    <!--                    <h6 slot="start" *ngIf="item.user.profile==''">{{checkName(item.user.name)}}</h6>-->
+                    <h6 class="chat-person">{{item.user.name}}</h6>
+                    <p>{{item.message}}</p>
+
+                    <small class="time-right">{{item.date|date: 'M/d/yy, h:mm a'}}</small>
+                </div>
+                <div class="not-found middle-container" *ngIf="chatMessages.length==0">
+                    <p>No Chat Started</p>
+                </div>
+
+                <div class="enter-message">
+                    <ion-input placeholder="Enter your message" [(ngModel)]="messageEntered"> </ion-input>
+                    <ion-button  [disabled]="disableEnter||!messageEntered" (click)="enterMessage()"> Enter</ion-button>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+
+</ion-content>

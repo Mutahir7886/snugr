@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="37px" height="46px" viewBox="0 0 37 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59 (86127) - https://sketch.com -->
+    <title>Group 10</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0.237546678 15.7707 0.237546678 15.7707 6.9112 0 6.9112"></polygon>
+        <polygon id="path-3" points="0.0003 0.891724317 11.91 0.891724317 11.91 10.9996871 0.0003 10.9996871"></polygon>
+    </defs>
+    <g id="Snugr" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(-357.000000, -579.000000)">
+            <g id="Group-10" transform="translate(357.000000, 579.000000)">
+                <g id="Group-9" transform="translate(7.000000, 8.500000)">
+                    <g id="Group-3" transform="translate(0.000000, 11.088600)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Clip-2"></g>
+                        <path d="M-0.0003,6.0872 C1.6287,1.7662 5.2227,-0.3138 10.0137,0.3632 L10.0137,5.1002 L15.7707,5.1002 L15.7707,6.9112 L-0.0003,6.9112 L-0.0003,6.0872 Z" id="Fill-1" fill="#F5C41F" mask="url(#mask-2)"></path>
+                    </g>
+                    <path d="M8.5427,2.05300785e-05 C11.5617,0.0161 14.0067,2.4791 14.000711,5.4991 C13.9937,8.5321 11.4637,11.0391 8.4457,11.0001 C5.3937,10.9601 2.9667,8.4671 3.0007,5.4021 C3.0337,2.3861 5.4977,-0.0159 8.5427,2.05300785e-05" id="Fill-4" fill="#F5C41F"></path>
+                    <g id="Group-8" transform="translate(11.000000, 7.088600)">
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <g id="Clip-7"></g>
+                        <path d="M6.2673,7.6488 L0.0003,7.6488 L0.0003,4.2818 L6.2873,4.2818 C6.2873,3.2268 6.2443,2.2688 6.3373,1.2988 C6.3723,0.9368 6.8093,0.7618 7.0823,1.0028 C8.5613,2.3078 10.0213,3.6288 11.4663,4.9668 C12.0613,5.5178 12.0573,6.4198 11.4583,6.9648 C10.0003,8.2918 8.5253,9.6018 7.0323,10.8928 C6.7563,11.1308 6.3273,10.9468 6.3023,10.5828 C6.2373,9.6358 6.2673,8.7048 6.2673,7.6488" id="Fill-6" fill="#F5C41F" mask="url(#mask-4)"></path>
+                    </g>
+                </g>
+                <ellipse id="Oval" stroke="#979797" cx="18.5" cy="18" rx="18" ry="17.5"></ellipse>
+                <text id="Leave" font-family="SFProText-Medium, SF Pro Text" font-size="8" font-weight="400" letter-spacing="-0.0942117333" fill="#E8C339">
+                    <tspan x="6.5" y="45">Leave</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

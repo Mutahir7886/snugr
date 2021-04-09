@@ -1,0 +1,76 @@
+<!--<ion-header>-->
+<!--  <ion-toolbar>-->
+<!--    <ion-title>Notification</ion-title>-->
+<!--  </ion-toolbar>-->
+<!--</ion-header>-->
+
+<!--<ion-content>-->
+<!--<div *ngIf="notifications">-->
+<!-- <ion-spinner *ngIf="isLoading"></ion-spinner>-->
+<!--  <ion-list *ngFor="let notification of notifications; let i = index">-->
+<!--    <ion-item (click)="PerformNotification(notification, i)" [class.bold]="notification.data.read === 'false'">-->
+<!--      <div style="display:flex;flex-direction: column">-->
+<!--&lt;!&ndash;        <p>{{checktime(notification.data.time | date: 'dd/MM/yyyy H:mm')}}</p>&ndash;&gt;-->
+<!--        <p>{{notification.data.time | date: 'dd/MM/yyyy hh:mm'}}</p>-->
+<!--        <p>{{notification.data.body}}</p>-->
+<!--      </div>-->
+<!--    </ion-item>-->
+
+<!--  </ion-list>-->
+<!--</div>-->
+
+<!--    <div *ngIf="notifications.length===0 &&!isLoading">-->
+<!--        NO NOTIFICATIONS YET-->
+<!--    </div>-->
+<!--  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">-->
+<!--    <ion-infinite-scroll-content-->
+<!--            loadingSpinner="bubbles"-->
+<!--    >-->
+<!--    </ion-infinite-scroll-content>-->
+<!--  </ion-infinite-scroll>-->
+<!--</ion-content>-->
+
+
+<!--ahmed UI-->
+<ion-header class="main-header">
+    <ion-toolbar>
+        <h3>Notifications</h3>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+    <div class="main-body">
+        <div  class="notification-screen plr-5">
+            <div *ngIf="notifications">
+                <ion-spinner *ngIf="isLoading"></ion-spinner>
+
+                <ion-card *ngFor="let notification of notifications; let i = index">
+                    <ion-card-header (click)="PerformNotification(notification, i)" [class.bold]="notification.data.read === 'false'">
+
+                        <div class="in-right">
+                            <p>{{notification.data.body}}</p>
+                            <p>{{notification.data.time | date: 'M/d/yy, h:mm a'}}</p>
+                        </div>
+                    </ion-card-header>
+                </ion-card>
+            </div>
+
+            <div *ngIf="notifications.length===0 &&!isLoading" class="not-found middle-container">
+                <img src="assets/images/no-notification.svg" alt="img">
+                <p>No notifications yet!</p>
+
+            </div>
+
+        </div>
+    </div>
+    <ion-infinite-scroll *ngIf="showScroller" threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content
+                class="infinite-scroll"
+                loadingSpinner="bubbles"
+                loadingText="Loading more data..."
+        >
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

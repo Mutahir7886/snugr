@@ -1,0 +1,46 @@
+<!--<ion-header [translucent]="true">-->
+<!--  <ion-toolbar>-->
+<!--    <ion-title>-->
+<!--       Login-->
+<!--    </ion-title>-->
+<!--  </ion-toolbar>-->
+<!--</ion-header>-->
+
+<!--<ion-content [fullscreen]="true">-->
+<!--  <div class="loginWithFacebook">-->
+
+
+<!--    <ion-button  (click)="login()">-->
+<!--      LOGIN WITH FACEBOOK-->
+<!--    </ion-button>-->
+<!--&lt;!&ndash;    <ion-spinner *ngIf="loader"></ion-spinner>&ndash;&gt;-->
+<!--    <ion-button  (click)="loginwithGmail()">-->
+<!--      LOGIN WITH GMAIL-->
+<!--    </ion-button>-->
+
+<!--&lt;!&ndash;    <ion-button  (click)="logout()">&ndash;&gt;-->
+<!--&lt;!&ndash;      LOGOUT&ndash;&gt;-->
+<!--&lt;!&ndash;    </ion-button>&ndash;&gt;-->
+
+<!--  </div>-->
+
+<!--</ion-content>-->
+
+
+
+<!--Ahmed UI Integration-->
+
+<ion-content ion-padding>
+
+  <div id="signup-screen">
+    <p>Welcome to</p>
+    <img class="logo-light" src="assets/images/logo-light.svg" alt="">
+    <img class="logo-dark" src="assets/images/logo-dark.svg" alt="">
+    <div class="pt-20">
+      <ion-button color="secondary" expand="full" (click)="login()"><i class="fab fa-facebook-f" ></i > Login with Facebook</ion-button>
+      <ion-spinner style="color: #f4c41f" *ngIf="loader"></ion-spinner>
+      <ion-button color="tertiary" expand="full" (click)="loginwithGmail()"><i class="fab fa-google-plus-g" ></i> Login with Google</ion-button>
+    </div>
+  </div>
+
+</ion-content>

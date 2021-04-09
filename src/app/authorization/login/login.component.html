@@ -1,0 +1,88 @@
+<!--<ion-header [translucent]="true">-->
+<!--  <ion-toolbar>-->
+<!--    <ion-title>-->
+<!--      Login 2-->
+<!--    </ion-title>-->
+<!--  </ion-toolbar>-->
+<!--</ion-header>-->
+
+<!--<ion-content [fullscreen]="true">-->
+<!--  <div class="loginWithFacebook">-->
+<!--    <p>{{email}}</p>-->
+<!--    <p>{{name}}</p>-->
+<!--    <form [formGroup]="formGroup">-->
+
+<!--      <input-->
+<!--              type="text"-->
+<!--              placeholder="Enter your username"-->
+<!--              formControlName="username">-->
+
+
+
+<!--      <div class="mybuttons">-->
+<!--        <ion-button (click)="login(formGroup)" [disabled]="formGroup.invalid">-->
+<!--          LOGIN-->
+<!--        </ion-button>-->
+
+<!--        &lt;!&ndash;      <div class="horizontalLine">&ndash;&gt;-->
+<!--        &lt;!&ndash;      </div>&ndash;&gt;-->
+<!--        &lt;!&ndash;      <p style="color: white;text-align: center"> Don't Have an account ? <a style="color: white" routerLink="/signup"> Signup </a></p>&ndash;&gt;-->
+<!--        &lt;!&ndash;      <br>&ndash;&gt;-->
+
+
+<!--      </div>-->
+<!--    </form>-->
+
+
+<!--  </div>-->
+
+<!--</ion-content>-->
+
+
+<!--Ahmed UI Integration-->
+
+<ion-header class="main-header">
+  <ion-toolbar>
+<!--    <h3><small><i class="fas fa-angle-left"></i> Back</small></h3>-->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="main-body">
+    <div class="login-screen plr-20">
+
+      <h3 class="mb-5">Join as a new member.</h3>
+      <p>Hi, buddy, fill up to continue with us</p>
+
+      <div class="auth-profile">
+        <div class="in-left">
+          <img [src]="profilePic" alt="">
+        </div>
+        <div class="in-right">
+          <h3><small>{{name}}</small></h3>
+          <p>{{email}}</p>
+        </div>
+      </div>
+
+
+      <form [formGroup]="formGroup">
+      <div class="app-input">
+        <label><i class="far fa-user"></i> Username</label>
+        <ion-input formControlName="username" placeholder="e.g James Helen"></ion-input>
+        <ion-input formControlName="phone" placeholder="e.g 03334163042"></ion-input>
+        <ion-input formControlName="messengerId" placeholder="e.g https://m.me/mutahir.sohail.500"></ion-input>
+      </div>
+
+      <div class="app-submit-btn pt-15">
+        <ion-button (click)="login(formGroup)" [disabled]="formGroup.invalid" color="primary">Continue</ion-button>
+      </div>
+      </form>
+
+    </div>
+
+
+
+  </div>
+
+</ion-content>

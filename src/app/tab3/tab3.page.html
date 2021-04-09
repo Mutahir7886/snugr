@@ -1,0 +1,100 @@
+<!--<ion-header [translucent]="true">-->
+<!--    <ion-toolbar>-->
+<!--        <ion-title>-->
+<!--            Settings-->
+<!--        </ion-title>-->
+<!--    </ion-toolbar>-->
+<!--</ion-header>-->
+
+<!--<ion-content [fullscreen]="true">-->
+<!--    <ion-button style="cursor:pointer;" (click)="logout()">-->
+<!--        Logout-->
+<!--    </ion-button>-->
+<!--    <p>Notification</p>-->
+<!--&lt;!&ndash;    <ion-toggle checked="{{isPushNotsOn()}}" (ionChange)="checkToggle($event)"></ion-toggle>&ndash;&gt;-->
+<!--&lt;!&ndash;    <ion-toggle checked="{{isPushNotsOn()}}" (ionChange)="checkToggle($event)"></ion-toggle>&ndash;&gt;-->
+<!--&lt;!&ndash;    <ion-toggle [(ngModel)]="notificationStatus" checked="{{notificationStatus}}" (ionChange)="checkToggle($event)"></ion-toggle>&ndash;&gt;-->
+<!--    <ion-toggle [formControl]="notificationsControl"></ion-toggle>-->
+
+<!--&lt;!&ndash;    <app-explore-container name="Tab 3 page"></app-explore-container>&ndash;&gt;-->
+
+<!--    <ion-button *ngIf="profileType === 1" (click)="connectWithFb()"> Connect With Facebook</ion-button>-->
+<!--    <ion-button  *ngIf="profileType === 0" (click)="connectWithGmail()"> Connect With Gmail</ion-button>-->
+<!--</ion-content>-->
+
+
+<!--ahmedUI-->
+
+<ion-header class="main-header">
+    <ion-toolbar>
+        <h3>Settings</h3>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+    <div class="main-body">
+        <div class="setting-screen">
+            <ion-list>
+                <ion-item>
+                    <ion-label>Terms of use</ion-label>
+                    <i slot="end" class="fas fa-angle-right"></i>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Privacy Policy</ion-label>
+                    <i slot="end" class="fas fa-angle-right"></i>
+                </ion-item>
+                <ion-item>
+                    <ion-label>About</ion-label>
+                    <i slot="end" class="fas fa-angle-right"></i>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Contact support</ion-label>
+                    <i slot="end" class="fas fa-angle-right"></i>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Get PRO / Remove Ads</ion-label>
+                    <i slot="end" class="fas fa-angle-right"></i>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Restore subscription</ion-label>
+                    <i slot="end" class="fas fa-angle-right"></i>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Account ID</ion-label>
+                    <p slot="end"><strong>Copy</strong></p>
+                </ion-item>
+                <ion-item>
+                    <ion-label>App Version</ion-label>
+                    <p slot="end">v.1.7.3 (961)</p>
+                </ion-item>
+                <ion-item (click)="logout()">
+                    <ion-label ><strong>LOG OUT</strong></ion-label>
+                    <i slot="end" class="fas fa-sign-out-alt" ></i>
+                </ion-item>
+                <ion-item>
+                    <ion-label> Notification</ion-label>
+<!--                    <i class="far fa-bell"></i>-->
+                    <ion-toggle [formControl]="notificationsControl"></ion-toggle>
+                </ion-item>
+
+                <ion-item *ngIf="!phone">
+                    <ion-input placeholder="e.g 03334163042" [(ngModel)]="setPhoneNumber"></ion-input>
+                    <ion-button  (click)="setPhone()">Set Phone Number</ion-button>
+                </ion-item>
+
+                <ion-item *ngIf="!messenger_id">
+                    <ion-input placeholder="e.g m.me/micheal.500" [(ngModel)]="setMessengerId"></ion-input>
+                    <ion-button  (click)="setMessenger()">Set Messenger Id</ion-button>
+                </ion-item>
+                <ion-item *ngIf="profileType!=2">
+                    <ion-button *ngIf="profileType === 1" color="secondary" expand="full" (click)="connectWithFb()"><i class="fab fa-facebook-f" ></i > Connect With Facebook</ion-button>
+                    <ion-button *ngIf="profileType === 0" color="tertiary" expand="full" (click)="connectWithGmail()"><i class="fab fa-google-plus-g" ></i> Connect With Google</ion-button>
+                </ion-item>
+
+            </ion-list>
+        </div>
+    </div>
+
+</ion-content>
